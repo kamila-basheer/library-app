@@ -6,7 +6,7 @@ const cors = require('cors');
 // const bodyparser = require('body-parser');
 const Book = require('./src/model/BookModel');
 const User = require('./src/model/UserModel');
-
+const PORT = process.env.PORT || 5000;
 
 const app = new express;
 app.use(express.static('./dist/front-end'))
@@ -157,6 +157,6 @@ app.get('/*',function(req,res){
     res.sendFile(path.join(__dirname + './dist/front-end/index.html'));
 });
 
-app.listen(process.env.PORT || 8080,()=>{
-    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+app.listen(PORT, () => {
+    console.log(`Listening on ${ PORT }`);
 });
